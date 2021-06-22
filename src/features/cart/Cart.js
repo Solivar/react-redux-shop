@@ -1,9 +1,10 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 import styled from 'styled-components';
 
 import { FullWidthButton } from '../../components/Button';
 import Card from '../../containers/Card';
+import { clearItems } from './cartSlice';
 import HorizontalLine from '../../components/HorizontalLine';
 import List from '../../components/List';
 import Product from './Product';
@@ -31,23 +32,47 @@ const Total = styled.p`
   }
 `;
 
+const ClearButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+`;
+
+const Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+
+  h3 {
+    margin: 0;
+  }
+`;
+
 export default function Cart() {
+  const dispatch = useDispatch();
+
   const cart = useSelector(state => state.cart.products);
   const products = useSelector(state => state.products.all);
   let total = 0;
 
-  cart.forEach(product => {
-    const p = products.find(product_ => product_.id === product.id);
+  cart.forEach(cartProduct => {
+    const product = products.find(p => p.id === cartProduct.id);
 
-    total += p.price * product.quantity;
+    total += product.price * cartProduct.quantity;
   });
 
   return (
     <Card>
-      <h3>Cart</h3>
+      <Header>
+        <h3>Cart</h3>
+        {cart.length > 0 && (
+          <ClearButton onClick={() => dispatch(clearItems())}>Clear all</ClearButton>
+        )}
+      </Header>
       <HorizontalLine />
 
-      {cart.length === 0 && <p>Cart is empty</p>}
+      {cart.length === 0 && <p>Your cart is empty</p>}
       {cart.length > 0 && (
         <>
           <List>

@@ -4,8 +4,8 @@ const Button = styled.button`
   background: black;
   color: white;
   border: 0;
-  padding: 0.5em 1.25em;
-  border-radius: 20px;
+  padding: 0.5em 2em;
+  border-radius: 25px;
   font-size: 1rem;
   cursor: pointer;
   font-weight: 600;

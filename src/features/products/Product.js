@@ -15,7 +15,7 @@ const Category = styled.p`
   padding: 0.2em 0.8em;
   margin: 0 0 1em;
   display: inline-block;
-  border-radius: 12px;
+  border-radius: 15px;
 `;
 
 const Price = styled.p`

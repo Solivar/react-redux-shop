@@ -32,7 +32,6 @@ const ControlButton = styled.button`
   height: 44px;
   width: 44px;
   cursor: pointer;
-  font-family: ;
 `;
 
 export default function QtyCounter({ id, quantity }) {

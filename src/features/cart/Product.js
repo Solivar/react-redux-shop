@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { removeItem } from './cartSlice';
 import Image from '../../components/Image';
 import QtyCounter from './QtyCounter';
 
@@ -28,14 +29,35 @@ const ImageWrapper = styled.div`
 `;
 
 const Title = styled.p`
-  margin: 1em 0 2em 1em;
+  margin: 0 1em 0;
   font-size: 0.8em;
   font-weight: 500;
   line-height: 120%;
   flex: 1 1 auto;
 `;
 
+const RemoveButton = styled.button`
+  background: #eee;
+  border: none;
+  padding: 0.25em;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 50%;
+  height: 2em;
+  flex: 0 0 2em;
+`;
+
+const TitleWrapper = styled.div`
+  display: flex;
+  margin-bottom: 1.5em;
+`;
+
+const Content = styled.div`
+  flex: 1 1 auto;
+`;
+
 export default function Item({ id, quantity }) {
+  const dispatch = useDispatch();
   const product = useSelector(state => state.products.all.find(product => product.id === id));
 
   return (
@@ -44,13 +66,16 @@ export default function Item({ id, quantity }) {
         <ImageWrapper>
           <Image src={product.image} alt="remove item from cart" />
         </ImageWrapper>
-        <div>
-          <Title>{product.title}</Title>
+        <Content>
+          <TitleWrapper>
+            <Title>{product.title}</Title>
+            <RemoveButton onClick={() => dispatch(removeItem(id))}>x</RemoveButton>
+          </TitleWrapper>
           <Price>
             <p>${(product.price * quantity).toFixed(2)}</p>
             <QtyCounter id={id} quantity={quantity} />
           </Price>
-        </div>
+        </Content>
       </Details>
     </>
   );
