@@ -5,14 +5,14 @@ import styled from 'styled-components';
 
 import { addItem } from '../cart/cartSlice';
 import Card from '../../containers/Card';
-import { Button } from '../../components/Button';
+import Button from '../../components/Button';
 import Image from '../../components/Image';
 
 const Category = styled.p`
   background-color: #eee;
   color: #646464;
   font-size: 0.8rem;
-  padding: 0.4em 0.8em;
+  padding: 0.2em 0.8em;
   margin: 0 0 1em;
   display: inline-block;
   border-radius: 12px;
@@ -37,12 +37,10 @@ export default function Product({ id, title, price, description, category, image
       <Grid>
         <div>
           <p style={{ margin: 0 }}>{description}</p>
-          <Price>${price}</Price>
+          <Price>${price.toFixed(2)}</Price>
           <Button onClick={() => dispatch(addItem(id))}>Add to Cart</Button>
         </div>
-        <div
-          style={{ display: 'flex', alignItems: 'center', maxHeight: '200px', padding: '0 2em' }}
-        >
+        <div style={{ maxHeight: '200px', padding: '0 2em' }}>
           <Image src={image} alt={`Product - ${title}`} />
         </div>
       </Grid>

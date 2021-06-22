@@ -1,13 +1,17 @@
 @import-normalize;
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
 
 html {
   font-size: 18px;
+  line-height: 150%;
 }
 
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
   font-weight: 300;
   padding: 20px;
 }
@@ -29,4 +33,5 @@ h2,
 h3 {
   margin-top: 0;
   font-weight: 500;
+  line-height: 120%;
 }

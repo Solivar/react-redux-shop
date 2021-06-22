@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Button = styled.button`
+const Button = styled.button`
   background: black;
   color: white;
   border: 0;
@@ -14,3 +14,9 @@ export const Button = styled.button`
     background: #626262;
   }
 `;
+
+export const FullWidthButton = styled(Button)`
+  width: 100%;
+`;
+
+export default Button;
