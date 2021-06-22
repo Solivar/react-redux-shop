@@ -4,18 +4,21 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { addItem } from '../cart/cartSlice';
+import { setFilter } from './productsSlice';
 import Card from '../../containers/Card';
 import Button from '../../components/Button';
 import Image from '../../components/Image';
 
-const Category = styled.p`
+const Category = styled.button`
   background-color: #eee;
   color: #646464;
   font-size: 0.8rem;
-  padding: 0.2em 0.8em;
+  padding: 0.4em 0.8em;
   margin: 0 0 1em;
   display: inline-block;
   border-radius: 15px;
+  border: none;
+  cursor: pointer;
 `;
 
 const Price = styled.p`
@@ -32,7 +35,7 @@ export default function Product({ id, title, price, description, category, image
 
   return (
     <Card>
-      <Category>{category}</Category>
+      <Category onClick={() => dispatch(setFilter(category))}>{category}</Category>
       <h2 style={{ marginBottom: '1.25em' }}>{title}</h2>
       <Grid>
         <div>

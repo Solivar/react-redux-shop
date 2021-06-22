@@ -7,7 +7,17 @@ import Loader from '../loader/Loader';
 import Product from './Product';
 
 export default function ProductList() {
-  const products = useSelector(state => state.products.all);
+  const filter = useSelector(state => state.products.filter);
+  const products = useSelector(state =>
+    state.products.all.filter(product => {
+      if (filter === 'default' || filter === product.category) {
+        return true;
+      }
+
+      return false;
+    }),
+  );
+
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);

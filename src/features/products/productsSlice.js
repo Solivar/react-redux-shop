@@ -5,7 +5,7 @@ export const productsSlice = createSlice({
   initialState: {
     all: [],
     categories: [],
-    filter: '',
+    filter: 'default',
   },
   reducers: {
     addAll: (state, action) => {
