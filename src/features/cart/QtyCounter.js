@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function QtyCount({ quantity }) {
+export default function QtyCounter({ quantity }) {
   return (
     <div>
       <button> - </button>

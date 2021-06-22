@@ -1,12 +1,11 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-const Wrapper = styled.h1`
+const Wrapper = styled.div`
   display: inline-block;
   position: relative;
   width: 80px;
   height: 80px;
-  background-color: black;
 `;
 
 const bubbleOne = keyframes`
@@ -42,7 +41,7 @@ const Bubble = styled.div`
   width: 13px;
   height: 13px;
   border-radius: 50%;
-  background: #fff;
+  background: #000;
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 
   &:nth-child(1) {

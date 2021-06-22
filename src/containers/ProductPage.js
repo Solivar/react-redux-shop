@@ -25,22 +25,7 @@ export default function ProductPage() {
           <ProductList />
         </div>
         <div style={{ position: 'sticky', top: 'calc(1.34em + 61.4px)' }}>
-          <Cart
-            items={[
-              {
-                title: 'test product',
-                price: 20,
-                quantity: 2,
-                image: 'https://via.placeholder.com/150',
-              },
-              {
-                title: '2nd product',
-                price: 15,
-                quantity: 1,
-                image: 'https://via.placeholder.com/150',
-              },
-            ]}
-          />
+          <Cart />
         </div>
       </Grid>
     </>

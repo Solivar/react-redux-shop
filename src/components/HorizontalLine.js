@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const Line = styled.div`
@@ -7,6 +6,4 @@ const Line = styled.div`
   margin: 1em 0;
 `;
 
-export default function HorizontalLine() {
-  return <Line />;
-}
+export default Line;

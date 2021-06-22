@@ -1,21 +1,12 @@
-import React from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import React from 'react';
 import styled from 'styled-components';
 
+import { addItem } from '../cart/cartSlice';
 import Card from '../../containers/Card';
-import Button from '../../components/Button';
-
-const Image = styled.div`
-  width: 100%;
-  max-width: 200px;
-  height: 100%;
-  max-height: 200px;
-  background-image: url(${props => (props.image ? props.image : '')});
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center center;
-  margin: 0 auto;
-`;
+import { Button } from '../../components/Button';
+import Image from '../../components/Image';
 
 const Category = styled.p`
   background-color: #eee;
@@ -36,7 +27,9 @@ const Grid = styled.div`
   grid-template-columns: 1fr 1fr;
 `;
 
-export default function Product({ title, price, description, category, image }) {
+export default function Product({ id, title, price, description, category, image }) {
+  const dispatch = useDispatch();
+
   return (
     <Card>
       <Category>{category}</Category>
@@ -45,10 +38,12 @@ export default function Product({ title, price, description, category, image }) 
         <div>
           <p style={{ margin: 0 }}>{description}</p>
           <Price>${price}</Price>
-          <Button text="Add to Cart" />
+          <Button onClick={() => dispatch(addItem(id))}>Add to Cart</Button>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <Image image={image} alt={`Product - ${title}`} />
+        <div
+          style={{ display: 'flex', alignItems: 'center', maxHeight: '200px', padding: '0 2em' }}
+        >
+          <Image src={image} alt={`Product - ${title}`} />
         </div>
       </Grid>
     </Card>
@@ -56,6 +51,7 @@ export default function Product({ title, price, description, category, image }) 
 }
 
 Product.propTypes = {
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   description: PropTypes.string.isRequired,

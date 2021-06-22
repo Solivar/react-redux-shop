@@ -1,20 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { addAll } from './productsSlice';
+import List from '../../components/List';
 import Loader from '../loader/Loader';
 import Product from './Product';
 
-const List = styled.ul`
-  list-style: none;
-  padding: 0;
-
-  li {
-    margin-bottom: 2em;
-  }
-`;
-
 export default function ProductList() {
-  const [products, setProducts] = useState([]);
+  const products = useSelector(state => state.products.all);
+  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -24,7 +18,7 @@ export default function ProductList() {
       .then(
         result => {
           setIsLoading(false);
-          setProducts(result);
+          dispatch(addAll(result));
         },
         error => {
           console.log(error);
@@ -32,7 +26,7 @@ export default function ProductList() {
           setError(error);
         },
       );
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

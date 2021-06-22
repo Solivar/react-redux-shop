@@ -1,7 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
 
-const StyledButton = styled.button`
+export const Button = styled.button`
   background: black;
   color: white;
   border: 0;
@@ -15,7 +14,3 @@ const StyledButton = styled.button`
     background: #626262;
   }
 `;
-
-export default function Button({ text }) {
-  return <StyledButton>{text}</StyledButton>;
-}
