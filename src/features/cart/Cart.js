@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 import styled from 'styled-components';
 
-// import { FullWidthButton } from '../../components/Button';
+import { FullWidthButton } from '../../components/Button';
 import Card from '../../containers/Card';
 import { clearItems } from './cartSlice';
 import HorizontalLine from '../../components/HorizontalLine';
@@ -87,7 +87,7 @@ export default function Cart() {
           <Total>
             Total: <span>${total.toFixed(2)}</span>
           </Total>
-          {/* <FullWidthButton>Checkout</FullWidthButton> */}
+          <FullWidthButton disabled>Checkout</FullWidthButton>
         </>
       )}
     </Card>

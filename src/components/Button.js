@@ -13,6 +13,11 @@ const Button = styled.button`
   &:hover {
     background: #626262;
   }
+
+  &:disabled {
+    background: #999;
+    cursor: not-allowed;
+  }
 `;
 
 export const FullWidthButton = styled(Button)`

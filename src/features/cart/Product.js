@@ -15,9 +15,10 @@ const Price = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  margin-top: 1em;
 
   p {
-    margin: 0 1em 0 0;
+    margin: 0 1em 0 1em;
     font-weight: 500;
   }
 `;
@@ -71,12 +72,12 @@ export default function Item({ id, quantity }) {
             <Title>{product.title}</Title>
             <RemoveButton onClick={() => dispatch(removeItem(id))}>x</RemoveButton>
           </TitleWrapper>
-          <Price>
-            <p>${(product.price * quantity).toFixed(2)}</p>
-            <QtyCounter id={id} quantity={quantity} />
-          </Price>
         </Content>
       </Details>
+      <Price>
+        <p>${(product.price * quantity).toFixed(2)}</p>
+        <QtyCounter id={id} quantity={quantity} />
+      </Price>
     </>
   );
 }

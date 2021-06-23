@@ -36,9 +36,9 @@ export default function Product({ id, title, price, description, category, image
   return (
     <Card>
       <Category onClick={() => dispatch(setFilter(category))}>{category}</Category>
-      <h2 style={{ marginBottom: '1.25em' }}>{title}</h2>
       <Grid>
         <div>
+          <h2 style={{ marginBottom: '1.25em' }}>{title}</h2>
           <p style={{ margin: 0 }}>{description}</p>
           <Price>${price.toFixed(2)}</Price>
           <Button onClick={() => dispatch(addItem(id))}>Add to Cart</Button>

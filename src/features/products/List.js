@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addAll } from './productsSlice';
 import List from '../../components/List';
 import Loader from '../loader/Loader';
 import Product from './Product';
+import productData from '../../test-data/products.json';
+import { addAll } from './productsSlice';
 
 export default function ProductList() {
   const filter = useSelector(state => state.products.filter);
@@ -33,14 +34,16 @@ export default function ProductList() {
         error => {
           console.log(error);
           setIsLoading(false);
-          setError(error);
+          setError('API down');
+          console.log('Using fallback dummy data');
+          dispatch(addAll(productData));
         },
       );
   }, [dispatch]);
 
   return (
     <>
-      {error && <p>Error</p>}
+      {/* {error && <p>Error</p>} */}
       {isLoading && <Loader />}
       {products.length > 0 && (
         <List>

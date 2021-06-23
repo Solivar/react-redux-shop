@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Cool phone or something",
+    "price": 299,
+    "description": "This is a phone and it's really cool",
+    "image": "https://placeimg.com/800/800/tech",
+    "category": "electronic"
+  },
+  {
+    "id": 2,
+    "title": "A nice jacket",
+    "price": 349,
+    "description": "That's a nice jacket",
+    "image": "https://placeimg.com/800/800/people",
+    "category": "men's clothing"
+  },
+  {
+    "id": 3,
+    "title": "Brand new shoes",
+    "price": 135.5,
+    "description": "Available in black and red",
+    "image": "https://placeimg.com/800/800/people/grayscale",
+    "category": "women's clothing"
+  }
+]
