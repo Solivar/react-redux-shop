@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 
@@ -35,8 +35,12 @@ const ControlButton = styled.button`
 `;
 
 export default function QtyCounter({ id, quantity }) {
-  const [value, setValue] = useState(quantity);
+  const [value, setValue] = useState('');
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    setValue(quantity);
+  }, [quantity]);
 
   const onChangeValue = event => {
     let number = parseInt(event.target.value);

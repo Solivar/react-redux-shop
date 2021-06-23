@@ -21,7 +21,7 @@ export default function ProductList() {
 
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
@@ -34,7 +34,7 @@ export default function ProductList() {
         error => {
           console.log(error);
           setIsLoading(false);
-          setError('API down');
+          // setError(error);
           console.log('Using fallback dummy data');
           dispatch(addAll(productData));
         },
