@@ -56,9 +56,7 @@ export default function ProductPage() {
           </Header>
           <ProductList />
         </div>
-        <div style={{ position: 'sticky', top: 'calc(1.34em + 61.4px)' }}>
-          <Cart />
-        </div>
+        <Cart />
       </Grid>
     </>
   );

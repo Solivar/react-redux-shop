@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { addItem } from '../cart/cartSlice';
 import { setFilter } from './productsSlice';
-import Card from '../../containers/Card';
+import Card from '../../components/Card';
 import Button from '../../components/Button';
 import Image from '../../components/Image';
 
